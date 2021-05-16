@@ -144,6 +144,6 @@ function make_boot {
     mkdir -p out/images
     read -p 'Version number: ' version
     echo "Creating boot.img"
-    ./scripts/mkbootimg/mkbootimg.py --kernel "$zimage_dir/Image.lz4-dtb" --ramdisk "boot-files/ramdisk" --dtb "$zimage_dir/dts/google/qcom-base/sm8150-v2.dtb" --cmdline 'console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on msm_rtb.filter=0x237 ehci-hcd.park=3 service_locator.enable=1 androidboot.memcg=1 cgroup.memory=nokmem usbcore.autosuspend=7 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 androidboot.boot_devices=soc/1d84000.ufshc buildvariant=user' --header_version 2 -o "out/images/KingKernel-$version.img"
+    ./scripts/mkbootimg/mkbootimg.py --kernel "$zimage_dir/Image.lz4-dtb" --ramdisk "boot-files/ramdisk" --dtb "$zimage_dir/dts/google/qcom-base/sm8150-v2.dtb" --cmdline 'console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on msm_rtb.filter=0x237 ehci-hcd.park=3 service_locator.enable=1 androidboot.memcg=1 cgroup.memory=nokmem usbcore.autosuspend=7 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 androidboot.boot_devices=soc/1d84000.ufshc loop.max_part=7 buildvariant=user' --header_version 2 -o "out/images/KingKernel-$version.img"
     echo "Success! Your file is stored in out/images/KingKernel-$version.img"
 }
